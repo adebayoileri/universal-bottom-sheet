@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
+    "@gorhom/bottom-sheet": "^4.6.3",
     "@react-navigation/native": "^6.0.2",
     "app": "*",
     "expo": "~51.0.14",

@@ -15,7 +15,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-native-web": "^0.19.12",
-    "ui": "*"
+    "ui": "*",
+    "vaul": "^0.9.1"
   },
   "devDependencies": {
     "@types/node": "^20",

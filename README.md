@@ -1,1 +1,2 @@
 # Universal Bottom Sheet
+A bottom sheet component that combines [Gorhom Bottom Sheet](https://github.com/gorhom/react-native-bottom-sheet) and [Vaul](https://github.com/emilkowalski/vaul) for seamless and responsive experience across both mobile and web.

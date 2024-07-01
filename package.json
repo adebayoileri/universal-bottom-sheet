@@ -13,10 +13,14 @@
   ],
   "packageManager": "yarn@1.22.19",
   "devDependencies": {
+    "@gorhom/bottom-sheet": "^4.6.3",
+    "@types/react": "^18.3.3",
+    "@types/react-native": "^0.73.0",
     "prettier": "^3.3.2",
     "turbo": "^2.0.4"
   },
   "resolutions": {
+    "@gorhom/bottom-sheet": "^4.6.3",
     "react": "18.2.0",
     "react-native": "0.74.2",
     "react-native-web": "~0.19.10",
