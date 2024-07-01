@@ -8,13 +8,17 @@ const BottomSheet = Fragment;
 
 const BottomSheetView = forwardRef<
   HTMLDivElement,
-  { children: React.ReactNode; ref?: React.Ref<HTMLDivElement> }
->(({ children }, ref) => (
+  {
+    children: React.ReactNode;
+    ref?: React.Ref<HTMLDivElement>;
+    className?: string;
+  }
+>(({ children, className }, ref) => (
   <Drawer.Portal>
     <Drawer.Overlay className="fixed inset-0 bg-black/40" />
     <Drawer.Content
       ref={ref}
-      className="bg-white shadow-lg flex flex-col rounded-t-[10px] h-full mt-24 fixed bottom-0 left-0 right-0"
+      className={`bg-white shadow-lg flex flex-col rounded-t-[10px] h-full mt-24 fixed bottom-0 left-0 right-0 ${className}`}
     >
       {children}
     </Drawer.Content>

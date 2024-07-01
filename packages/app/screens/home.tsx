@@ -9,15 +9,16 @@ import {
   BottomSheetTrigger,
   BottomSheetHandle,
 } from "ui/bottom-sheet";
-import { Pressable, StyleSheet, Platform } from "react-native";
+import { Pressable, Platform } from "react-native";
 
 export function Home() {
   const [isOpen, setIsOpen] = React.useState(false);
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-  // bottomSheetWebRef
+  // bottomSheetModalRef
   console.log({ bottomSheetModalRef });
+
   // variables
   const snapPoints = useMemo(() => [600, "20%", "50%", "70%", "95%"], []);
 
@@ -40,8 +41,8 @@ export function Home() {
 
   return (
     <View className="flex flex-1 justify-center items-center">
-      <View style={styles.container}>
-        {Platform.OS !== "web" && (
+      <View className="p-1 rounded-md">
+        {Platform.OS !== "web" && ( // Use this condition if you want to control the modal from outside for only mobile
           <Pressable onPress={handlePresentModalPress}>
             <Text>Present Modal</Text>
           </Pressable>
@@ -50,6 +51,7 @@ export function Home() {
         <BottomSheetModal
           ref={bottomSheetModalRef}
           index={1}
+          // open={isOpen} Use this prop if you want to control the modal from outside for web 
           snapPoints={snapPoints}
           onChange={handleSheetChanges}
           handleComponent={() => (
@@ -67,7 +69,7 @@ export function Home() {
               </BottomSheetTrigger>
             </>
           )}
-          <BottomSheetView style={styles.contentContainer}>
+          <BottomSheetView className="flex-1">
             {Platform.OS === "web" && (
               <BottomSheetHandle
                 className="bg-gray-300 mt-2"
@@ -75,25 +77,10 @@ export function Home() {
                 animatedPosition={undefined}
               />
             )}
-            <Text>Awesome 🎉</Text>
+            <Text className="mt-10 text-center">Awesome 🎉</Text>
           </BottomSheetView>
         </BottomSheetModal>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    padding: 4,
-    borderRadius: 4,
-    // height: 28,
-    // justifyContent: "center",
-    // backgroundColor: "grey",
-  },
-  contentContainer: {
-    flex: 1,
-    alignItems: "center",
-  },
-});
