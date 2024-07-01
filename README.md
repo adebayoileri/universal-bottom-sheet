@@ -1,6 +1,7 @@
 # Universal Bottom Sheet
 A bottom sheet component that combines [Gorhom Bottom Sheet](https://github.com/gorhom/react-native-bottom-sheet) and [Vaul](https://github.com/emilkowalski/vaul) for seamless and responsive experience across both mobile and web.
 
+![Bottom Sheet](./github.gif)
 
 > **Note:** This is not a standalone package. It is a wrapper around Gorhom Bottom Sheet and Vaul for use across both mobile and web. You need to install Gorhom Bottom Sheet and Vaul separately to use this package.
 
