@@ -11,6 +11,7 @@ module.exports = withExpo({
     "ui",
     "nativewind",
     "react-native-css-interop",
+    "react-native-reanimated"
     // Add other packages that need transpiling
   ],
   webpack: (config) => {

@@ -4,7 +4,7 @@ import BottomSheet, {
   BottomSheetModalProvider,
   BottomSheetModal as BSModal,
   BottomSheetScrollView as BSScrollView,
-  BottomSheetHandle as BSHandle,
+  BottomSheetHandle as BSHandle
 } from "@gorhom/bottom-sheet";
 import type { BottomSheetModal as BSModalType } from "@gorhom/bottom-sheet";
 import { cssInterop } from "nativewind";
