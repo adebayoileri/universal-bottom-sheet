@@ -3,7 +3,7 @@ A bottom sheet component that combines [Gorhom Bottom Sheet](https://github.com/
 
 ![Bottom Sheet](./github.gif)
 
-> **Note:** This is not a standalone package. It is a wrapper around Gorhom Bottom Sheet and Vaul for use across both mobile and web. You need to install Gorhom Bottom Sheet and Vaul separately to use this package.
+> **Note:** This is not a standalone package. It is a wrapper around Gorhom Bottom Sheet and Vaul for use across both mobile and web. You need to install Gorhom Bottom Sheet and Vaul separately to use this component.
 
 
 ### Installation
@@ -75,9 +75,13 @@ import {
   BottomSheetHandle,
 } from "ui/bottom-sheet";
 import { Pressable, Platform } from "react-native";
+import { useSharedValue } from "react-native-reanimated";
 
 export function Home() {
   const [isOpen, setIsOpen] = React.useState(false);
+
+  const animatedIndex = useSharedValue<number>(0);
+  const animatedPosition = useSharedValue<number>(0);
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -116,14 +120,14 @@ export function Home() {
         <BottomSheetModal
           ref={bottomSheetModalRef}
           index={1}
-          // open={isOpen} Use this prop if you want to control the modal from outside for web 
+          // open={isOpen} Use this prop if you want to control the modal from outside for web
           snapPoints={snapPoints}
           onChange={handleSheetChanges}
           handleComponent={() => (
             <BottomSheetHandle
               className="bg-green-300 mt-2"
-              animatedIndex={undefined}
-              animatedPosition={undefined}
+              animatedIndex={animatedIndex}
+              animatedPosition={animatedPosition}
             />
           )}
         >
@@ -134,22 +138,21 @@ export function Home() {
               </BottomSheetTrigger>
             </>
           )}
-          <BottomSheetView className="flex-1">
+          <BottomSheetView className="flex-1 items-center">
             {Platform.OS === "web" && (
               <BottomSheetHandle
                 className="bg-gray-300 mt-2"
-                animatedIndex={undefined}
-                animatedPosition={undefined}
+                animatedIndex={animatedIndex}
+                animatedPosition={animatedPosition}
               />
             )}
-            <Text className="mt-10 text-center">Awesome 🎉</Text>
+            <Text className="mt-10">Awesome 🎉</Text>
           </BottomSheetView>
         </BottomSheetModal>
       </View>
     </View>
   );
 }
-
 ```
 ### Author
 
