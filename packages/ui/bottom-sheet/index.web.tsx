@@ -26,6 +26,7 @@ const BottomSheetView = forwardRef<
 ));
 
 const BottomSheetModalProvider = Fragment;
+const useBottomSheet = () => ({}); // no-op
 
 type BottomSheetModal = ComponentProps<typeof Drawer.Content>;
 
@@ -45,7 +46,7 @@ const BottomSheetModal = ({
   }, [snapPoints]);
 
   return (
-    <Drawer.Root {...rest} snapPoints={combinedSnapPoints}>
+    <Drawer.Root {...rest} open={isOpen} snapPoints={combinedSnapPoints}>
       {children}
     </Drawer.Root>
   );
@@ -76,4 +77,5 @@ export {
   BottomSheetModal,
   BottomSheetScrollView,
   BottomSheetHandle,
+  useBottomSheet
 };
