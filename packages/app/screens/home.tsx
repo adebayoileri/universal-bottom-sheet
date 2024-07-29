@@ -8,19 +8,18 @@ import {
   BottomSheetView,
   BottomSheetTrigger,
   BottomSheetHandle,
+  useBottomSheet
 } from "ui/bottom-sheet";
 import { Pressable, Platform } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 
 export function Home() {
-  const [isOpen, setIsOpen] = React.useState(false);
-
+  // ref
+  const { sheetRef: bottomSheetModalRef, isOpen, setIsOpen } = useBottomSheet();
   const animatedIndex = useSharedValue<number>(0);
   const animatedPosition = useSharedValue<number>(0);
-  // ref
-  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-  // bottomSheetModalRef
+  // bottomSheetModalRef 
   console.log({ bottomSheetModalRef });
 
   // variables
@@ -28,8 +27,6 @@ export function Home() {
 
   // callbacks
   const handlePresentModalPress = useCallback(() => {
-    // bottomSheetWebRef.current?.focus();
-
     if (isOpen) {
       bottomSheetModalRef.current?.dismiss();
       setIsOpen(false);
@@ -66,7 +63,7 @@ export function Home() {
             />
           )}
         >
-          {Platform.OS === "web" && (
+          {Platform.OS === "web" && ( // Use this component if you want to control the modal from outside for web and also as a trigger as close within the modal on mobile
             <>
               <BottomSheetTrigger>
                 <Text>Present Modal</Text>
